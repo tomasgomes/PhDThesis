@@ -40,6 +40,7 @@
   %  % load font from system font
   %  \newfontfamily\libertinesystemfont{Linux Libertine O}
 \fi
+\usepackage{upgreek}
 
 % *****************************************************************************
 % **************************** Custom Packages ********************************
@@ -65,8 +66,9 @@
 
 % Uncomment the following two lines to force Latex to place the figure.
 % Use [H] when including graphics. Note 'H' instead of 'h'
-%\usepackage{float}
+\usepackage{float}
 %\restylefloat{figure}
+\usepackage{placeins} % just this one and placing \FloatBarrier at the bottom actually does a better job
 
 % Subcaption package is also available in the sty folder you can use that by
 % uncommenting the following line
@@ -81,6 +83,10 @@
 %\usepackage{multicol}
 %\usepackage{longtable}
 %\usepackage{tabularx}
+
+%% function for cell line changes
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
 
 
 % *********************************** SI Units *********************************
