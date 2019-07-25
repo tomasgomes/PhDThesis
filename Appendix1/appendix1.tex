@@ -12,10 +12,10 @@ All mice were maintained under specific pathogen-free conditions at the Wellcome
 \subsection{Human samples}
 Human skin and blood samples were obtained from patients undergoing breast reduction plastic surgeries (REC approval number: 08/H0906/95+5). Surgical-resection specimens were obtained from patients attending the John Radcliffe Hospital Gastroenterology Unit (Oxford, UK). These specimens were obtained from normal regions of bowel adjacent to resected colorectal tumours from patients undergoing surgery. Informed, written consent was obtained from all donors. Human experimental protocols were approved by the NHS Research Ethics System (Reference number:11/YH/0020). Further details concerning patients and tumours can be found in Table~\ref{table:tab_A_2}.
 
-\subsection{Isolation of murine leukocytes for steady-state skin dataset}
+\subsection{Murine leukocytes isolation in steady-state skin dataset}
 To isolate leukocytes from ear tissue, ears were removed at the base, split into halves and cut into very small pieces. Tissue was digested in 3.5ml RPMI medium (GIBCO) with 0.1${\%}$ BSA, 15mM Hepes, 1mg/ml collagenase D (Roche) and 450${\upmu}$g/ml Liberase TL (Roche) for 60 minutes at 37°C in a shaking incubator at 200rpm. Digested tissue was passed through an 18G needle to further disrupt the tissue and release cells. Cells were filtered through a 70${\upmu}$m cell strainer, and the digestion was terminated by addition of ice-cold RPMI containing 0.1${\%}$ BSA (Sigma-Aldrich) and 5mM EDTA (Invitrogen). A three-layer (30, 40, 70${\%}$) Percoll (GE Healthcare) density-gradient was used to enrich for the lymphocytes. Cells obtained from the digestion were layered in the 30${\%}$ layer on top of the 40${\%}$ and 70${\%}$ layers, and centrifuged for 20 minutes at 1800rpm without brake. Cells at the 40/70${\%}$ interface were collected for the subsequent analysis. Cell suspensions from spleen and bLN were prepared as described previously~\citep{Uhlig2006-om}.
 
-\subsection{Isolation of murine leukocytes for steady-state colon dataset}
+\subsection{Murine leukocytes isolation in steady-state colon dataset}
 Colons were washed twice in RPMI medium (GIBCO) with 0.1${\%}$ BSA (Sigma-Aldrich) and 5mM EDTA (Invitrogen) in a shaking incubator at 200rpm at 37°C to remove epithelial cells. The tissue was then digested for an hour in RPMI with 10${\%}$ FCS, 15mM Hepes (GIBCO) and 100U/ml collagenase VIII (Sigma-Aldrich). Digestion was terminated by addition of ice-cold RPMI with 10${\%}$ FCS (Sigma-Aldrich) and 5mM EDTA (Invitrogen). Leukocyte enrichment and suspension was obtained as described in the previous paragraph.
 
 \subsection{Melanoma induction and cell isolation}	
@@ -42,9 +42,9 @@ Two plate-based scRNA-seq datasets: the “colon dataset”, including Treg and 
 \section{Supplementary Tables and Figures}
 \label{sectionA1.2}
 
-\begin{table}[H]
+\begin{table}[htp!]
 \footnotesize
-\caption{Quality control criteria for filtering single cell transcriptomes in each dataset, parameters for dimensionality reduction and QC rejection fractions. Cells were kept if they passed all these filters (see Methods). Related to Figure~\ref{fig:chap2_fig1}}
+\caption[Quality control criteria for filtering scRNA-seq]{Quality control criteria for filtering single cell transcriptomes in each dataset, parameters for dimensionality reduction and QC rejection fractions. Cells were kept if they passed all these filters (see Methods). Related to Figure~\ref{fig:chap2_fig1}}
 \centering
 \label{table:tab_A_1}
 \begin{tabular}{l|c c c c c}
@@ -84,7 +84,7 @@ tSNE perplecity & 30 & 30 & 30 & 30 & 30\\
 
 \begin{table}[H]
 \footnotesize
-\caption{Information on human donors with biological material included in this study.  Related to Figure~\ref{fig:chap2_fig5}}
+\caption[Clinical information on human donors included in this study]{Information on human donors with biological material included in this study. Related to Figure~\ref{fig:chap2_fig5}}
 \centering
 \label{table:tab_A_2}
 \begin{tabular}{l|l l l l l}
@@ -97,7 +97,7 @@ Age & - & - & - & 64 & 62\\
 
 Sex & F & F & F & F & M\\
 
-\specialcell[t]{Pathology and\\location} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{adenocarcinoma;\\Caecum} & \specialcell[t]{Tubilovillous adenoma\\with low and high\\grade displasia; rectum}\\
+\specialcell[t]{Pathology and\\location} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{Breast\\reduction;\\Breast} & \specialcell[t]{adenocarcinoma;\\Caecum} & \specialcell[t]{Tubilovillous\\adenoma;\\rectum}\\
 
 \specialcell[t]{Tumour\\stage} & - & - & - & \specialcell[t]{PT3 N0(0/23)\\M0 L0 V0\\R0 Duke's B} & PT0\\
 
@@ -138,24 +138,24 @@ Sex & F & F & F & F & M\\
 \begin{figure}[ht!] 
 \centering    
 \includegraphics[width=1.0\textwidth]{Appendix1/Figs/appA_fig4.png} % change word in curlies to change figure
-\caption[Additional information on BGPLVM for the Smart-seq2 datasets]{\textbf{Additional information on BGPLVM for the Smart-seq2 datasets (Related to Figure~\ref{fig:chap2_fig3})}\newline\textbf{(A and B)} Clonotypes detected using TraCeR in the Smart-seq2 (A) Mouse Colon dataset, or (B) Mouse Skin dataset. In each panel, on the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain, and on the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$. \textbf{(C)} Automatic Relevance Determination (ARD) plots for BGPLVM of Smart-seq2 Treg in mLN and colon (top, referring to panel D, left), and bLN and skin (bottom, referring to panel D, right) datasets. \textbf{(D)} BGPLVM dimensionality reduction of Smart-seq2 data of Treg from lymph nodes and non-lymphoid tissues (top), with a histogram plot showing the distribution along LV0 of each subpopulation identified (bottom). mLN and colon Treg are plotted on the left, while bLN and skin Treg are plotted on the right. Cells are coloured by the inferred subpopulation they belong to as per the predictions made in Figure~\ref{fig:appA_fig2}B. \textbf{(E)} Pairwise overlap between the sets of genes with absolute correlation with LV0 greater than 0.25 in each of the four steady-state datasets. The percentages refer to the proportion of the set on the x-axis that is overlapping the set on the y-axis.}
+\caption[Additional information on BGPLVM for the Smart-seq2 datasets]{\textbf{Additional information on BGPLVM for the Smart-seq2 datasets (Related to Figure~\ref{fig:chap2_fig3})}\newline\textbf{(A and B)} Clonotypes detected using TraCeR in the Smart-seq2 (A) Mouse Colon dataset, or (B) Mouse Skin dataset. In each panel, on the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain, and on the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$. \textbf{(C)} ARD plots for BGPLVM of Smart-seq2 Treg in mLN and colon (top, referring to panel D, left), and bLN and skin (bottom, referring to panel D, right) datasets. \textbf{(D)} BGPLVM dimensionality reduction of Smart-seq2 data of Treg from lymph nodes and non-lymphoid tissues (top), with a histogram plot showing the distribution along LV0 of each subpopulation identified (bottom). mLN and colon Treg are plotted on the left, while bLN and skin Treg are plotted on the right. Cells are coloured by the inferred subpopulation they belong to as per the predictions made in Figure~\ref{fig:appA_fig2}B. \textbf{(E)} Pairwise overlap between the sets of genes with absolute correlation with LV0 greater than 0.25 in each of the four steady-state datasets. The percentages refer to the proportion of the set on the x-axis that is overlapping the set on the y-axis.}
 \label{fig:appA_fig4}
 \end{figure}
 
 \begin{figure}[pt!] 
 \centering    
 \includegraphics[width=1.0\textwidth]{Appendix1/Figs/appA_fig5.png} % change word in curlies to change figure
-\caption[Additional details on the MRD-BGPLVM projection]{\textbf{Additional details on the MRD-BGPLVM projection (Related to Figure~\ref{fig:chap2_fig4}).}\newline\textbf{(A)} t-SNE dimensionality reduction coloured by cell cycle phase in the mouse melanoma dataset. \textbf{(B)} Clonotypes detected using TraCeR in the Smart-seq2 Mouse Melanoma dataset. In each panel, on the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain, and on the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$. \textbf{(C)} Automatic Relevance Determination (ARD) plots for MRD-BGPLVM of Treg in control and melanoma conditions. Colours show effect of gene groups in each obtained latent variable. \textbf{(D)} Velocyto vectorfield overlaid on MRD-BGPLVM projection of bLN and skin from both Control and Melanoma conditions (related to Figure~\ref{fig:chap2_fig4}D). (Continued on the following page.)}
+\caption[Additional details on the MRD-BGPLVM projection]{\textbf{Additional details on the MRD-BGPLVM projection (Related to Figure~\ref{fig:chap2_fig4}).}\newline\textbf{(A)} t-SNE dimensionality reduction coloured by cell cycle phase in the mouse melanoma dataset. \textbf{(B)} Clonotypes detected using TraCeR in the Mouse Melanoma dataset. On the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain. On the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$. \textbf{(C)} ARD plots for MRD-BGPLVM of Treg in control and melanoma conditions. Colours show effect of gene groups in each obtained latent variable. (Continued on the following page.)}
 \label{fig:appA_fig5}
 \end{figure}
 \begin{figure}[hpt!]
-  \contcaption{(continued) \textbf{(E)} Automatic Relevance Determination (ARD) plots for BGPLVM of Smart-seq2 Treg in bLN and skin in the Control condition (left, related to panel F), and Melanoma condition (bottom, related to panel G). \textbf{(F and G)} BGPLVM projection of bLN and skin in control (F) and melanoma (G) conditions, using the top two latent variables. \textbf{(H)} Pairwise overlap between the sets of genes with absolute correlation with LV0 greater than 0.25 in each subset of the melanoma dataset. The percentages refer to the proportion of the set on the x-axis that is overlapping the set on the y-axis.}% Continued caption
+  \contcaption{(continued) \textbf{(D)} Velocyto vectorfield overlaid on MRD-BGPLVM projection of bLN and skin from both Control and Melanoma conditions (related to Figure~\ref{fig:chap2_fig4}D). \textbf{(E)} ARD plots for BGPLVM of Smart-seq2 Treg in bLN and skin in the Control condition (left, related to panel F), and Melanoma condition (bottom, related to panel G). \textbf{(F and G)} BGPLVM projection of bLN and skin in control (F) and melanoma (G) conditions, using the top two latent variables. \textbf{(H)} Pairwise overlap between the sets of genes with absolute correlation with LV0 greater than 0.25 in each subset of the melanoma dataset. The percentages refer to the proportion of the set on the x-axis that is overlapping the set on the y-axis.}% Continued caption
 \end{figure}
 
 \begin{figure}[pt!] 
 \centering    
 \includegraphics[width=1.0\textwidth]{Appendix1/Figs/appA_fig6.png} % change word in curlies to change figure
-\caption[Additional information about the Human Smart-seq2 dataset]{\textbf{Additional information about the Human Smart-seq2 dataset (Related to Figure~\ref{fig:chap2_fig5}).}\newline\textbf{(A and B)} t-SNE dimensionality reduction. Shapes match cell type and tissue according to legend. Colours match either cell type and tissue (A) or sampled individual (B). \textbf{(C)} Z-score of mean expression levels of identified markers across all sampled cell types and tissues in human. \textbf{(D)} Clonotypes detected using TraCeR in the Smart-seq2 Human dataset. In each panel, on the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain, and on the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$.}
+\caption[Additional information about the Human Smart-seq2 dataset]{\textbf{Additional information on the Human dataset (Related to Figure~\ref{fig:chap2_fig5}).}\newline\textbf{(A and B)} t-SNE dimensionality reduction. Shapes match cell type and tissue according to legend. Colours match either cell type and tissue (A) or sampled individual (B). \textbf{(C)} Z-score of mean expression levels of identified markers across all sampled cell types and tissues in human. \textbf{(D)} Clonotypes detected using TraCeR in the Human dataset. On the left, number of clonotypes detected spanning different tissues and cell type combinations. Top right half registers all events of TCR chain sharing, bottom left half only considers the sharing of productive ${\upalpha}$ and ${\upbeta}$ TCR chain. On the right, number of clonotypes detected within each cell type and tissue, considering the sharing of any chain or productive ${\upalpha}$ and ${\upbeta}$.}
 \label{fig:appA_fig6}
 \end{figure}
 

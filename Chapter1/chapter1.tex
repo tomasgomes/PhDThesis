@@ -69,14 +69,14 @@ While defining cell types through their transcriptome was not in the genesis of 
 % table: Title; Description; Ref
 \begin{table}[p] % p for putting it in the next page available
 \footnotesize
-\caption{Comprehensive list of papers detailing methods for automated cell state matching}
+\caption[Methods for automated cell state matching]{Comprehensive list of papers detailing methods for automated cell state matching}
 \centering
 \label{table:tab_1_1}
 \begin{tabular}{l|l|c}
 \toprule
 ~\textbf{Method Name} & ~\textbf{Short Description} & ~\textbf{Reference}  \\
 \midrule
-scmap & k-nearest-neighbor search with cosine distance & ~\citep{kiselev_scmap:_2018}  \\
+scmap & \specialcell[t]{k-nearest-neighbor search\\with cosine distance} & ~\citep{kiselev_scmap:_2018}  \\
 
 matchSCore & Jaccard Index for cluster markers & ~\citep{mereu_matchscore:_2018}\\
 
@@ -98,7 +98,7 @@ scVI & VAE and hierarchical Bayesian model & ~\citep{lopez_deep_2018}\\
 
 scPred & SVM in principal component space & ~\citep{alquicira-hernandez_scpred:_2018}\\
 
-SingleCellNet & Random Forest on binary marker expression & ~\citep{tan_singlecellnet:_2018}\\
+SingleCellNet & \specialcell[t]{Random Forest on\\binary marker expression} & ~\citep{tan_singlecellnet:_2018}\\
 
 CellAssign & \specialcell[t]{Multi-variable model with marker genes 
 \\and hierarchical Bayesian framework} & ~\citep{zhang_probabilistic_2019}\\
@@ -109,7 +109,7 @@ scID & \specialcell[t]{Linear Discriminant Analysis\\with marker genes} & ~\cite
 
 SingleR & Spearman correlation with training data & ~\citep{aran_reference-based_2019}\\
 
-Garnett & \specialcell[t]{Elastic net multinomial classifier with\\marker genes from hierarchical cell types} & ~\citep{pliner_supervised_2019}\\
+Garnett & \specialcell[t]{Elastic net multinomial classifier using\\markers from hierarchical cell types} & ~\citep{pliner_supervised_2019}\\
 
 SCINA & bimodal distribution of signature genes, & ~\citep{zhang_scina:_2019}\\
 
