@@ -32,6 +32,9 @@ Trafficking of T cells to NLTs occurs in steady-state conditions and development
 To provide a deeper insight into Treg cell populations in NLTs, we analysed single-cell RNA-seq (scRNA-seq) data of Treg cells from mouse colon and skin, and compared them to LT populations. We identified various transcriptionally distinct clusters of Treg cells in LTs and NLTs, namely a subpopulation in the LTs which showed heavy priming to the NLT environment. Pseudotime ordering of these subpopulations further revealed the transcriptomic adaptations occurring in Treg cells during their transition from the lymph node to barrier tissues. Our results show that these steady-state adaptations share a core signature between bLN-to-skin and mLN-to-colon trajectories, indicative of a general NLT residency programme in barrier tissues. These findings were recapitulated during \textit{de novo} Treg cell recruitment to melanoma in a murine model system. Lastly, we examined the evolutionarily conservation of NLT Treg cells’ identity between mouse and human.
 
 
+\nomenclature[z-bLN]{bLN}{brachial Lymph Nodes}
+\nomenclature[z-mLN]{mLN}{mesenteric Lymph Nodes}
+
 \section{Treg and Tmem cell identity in NLTs is driven by a common expression module}
 \label{section2.2}
 We performed scRNA-seq on isolated CD4\textsuperscript{+}Foxp3\textsuperscript{+} (Treg) and CD4\textsuperscript{+}Foxp3\textsuperscript{-}CD44high memory (Tmem) T cells (Figure~\ref{fig:appA_fig1}A) from two barrier NLT sites - the colonic lamina propria (hereinafter referred to as colon) and the skin - their lymphoid counterparts in the draining mesenteric and brachial lymph nodes (mLN and bLN), and the spleen from a Foxp3-GFP mouse reporter line~\citep{Bettelli2006-dw} (Figure~\ref{fig:chap2_fig1}A). We will refer to Treg and Tmem cells together as CD4\textsuperscript{+} T cells. For each sorted population, single-cells were captured using the droplet-based microfluidic system Chromium (10x Genomics), hereinafter referred to as 10x. We obtained 30396 good quality cells (see Methods, Figure~\ref{fig:appA_fig1}C, Table~\ref{table:tab_A_1}). Using the same gating strategy, two Smart-seq2~\citep{picelli_full-length_2014} plate-based datasets were produced independently. These confirmed findings drawn from the 10x, and complemented them with higher gene coverage and full T cell receptor (TCR) sequences.
@@ -47,6 +50,8 @@ A tSNE projection (Figure~\ref{fig:chap2_fig1}B) after filtering (Figure~\ref{fi
 
 Together, the scRNA-seq datasets collected provide a comprehensive overview of Treg and Tmem cells in multiple lymphoid and non-lymphoid tissues, and identify the TNFRSF-NF-${\upkappa}$B pathway as key to their barrier tissue identity.
 
+
+\nomenclature[z-DE]{DE}{Differentially Expressed (genes)}
 
 \section{Heterogeneity within LT and NLT Treg cell populations}
 \label{section2.3}
@@ -65,6 +70,7 @@ Treg cell phenotypical and functional heterogeneity has been extensively discuss
 To quantify the bias towards LT or NLT phenotypes, we calculated an NLT-LT marker gene signature for each cluster (Figure~\ref{fig:chap2_fig2}D; see Methods). Consistently across all LTs, cTreg cells exhibited a clear LT signature, while eTregs and NLT-like Tregs leaned towards an NLT profile, which was more pronounced in the latter. 
 
 In the colon, we found three subpopulations of Treg cells that we labeled as NLT, suppressive and LT-like. Treg NLT and suppressive cells were present in equal proportions, both exhibiting NLT traits (Figure~\ref{fig:chap2_fig2}C,D). Treg NLT cells in colon express higher amounts of \textit{Gata3}, \textit{Nrp1}, \textit{Areg}, \textit{Il1rl1}, \textit{Ikzf2}, matching the known thymic-derived GATA3\textsuperscript{+}-subpopulation~\citep{Schiering2014-ry,Hu2015-yc}, while suppressive colonic Treg cells expressed more \textit{Il10}, \textit{Gzmb}, \textit{Lag3}, \textit{Cxcr3}, resembling the peripherally-derived ROR${\upgamma}$t\textsuperscript{+}-subpopulation~\citep{Ohnmacht2015-mo,Schiering2014-ry,Sefik2015-jq}. \textit{Rorc} itself, while not present as a marker, appears in a higher percentage of Treg suppressive cells (6.16${\%}$ vs 2.85${\%}$ in colonic Treg NLT cells). Technical limitations for detection of lowly expressed genes by scRNA-seq might account for the difficulty in capturing \textit{Rorc} transcripts. Lastly, LT-like Treg cells differed from other colonic populations by expressing LT-associated genes including \textit{Sell}, \textit{Ccr7}, \textit{Tcf7}, \textit{Bcl2}, and lower amounts of NLT-associated genes such as \textit{Klrg1}, \textit{Cd44}, \textit{Icos}, \textit{Rora}, \textit{Tnfrsf9}, \textit{Itgae} (Figure~\ref{fig:chap2_fig2}B).
+
 In contrast to the colon, and likely as a consequence of fewer cells captured, skin Treg cells did not show evident heterogeneity (Figure~\ref{fig:chap2_fig2}A). They expressed an unequivocal NLT signature (Figure~\ref{fig:chap2_fig2}D), but it was not clear to which colonic Treg cell populations they were most similar (Figure~\ref{fig:chap2_fig2}B). We addressed this by using a logistic regression model to calculate the probability of each skin Treg cell identifying as one of the colonic subpopulations (Figure~\ref{fig:chap2_fig2}G, see Methods). This revealed that most skin Treg cells were more similar to colonic Treg NLT than to Treg suppressive cells. Accordingly, colon Treg NLT cell marker genes \textit{Gata3}, \textit{Il1rl1}, \textit{Tnfrsf4}, \textit{Rora} were not differentially expressed between skin and colon Treg NLT cells (Figure~\ref{fig:chap2_fig2}H, Figure~\ref{fig:appA_fig2}A). Despite their resemblance, differences in function and/or state between skin and colon Treg NLT might reside in a few genes. Among these are \textit{Dgat2}, an enzyme involved in lipid synthesis in skin~\citep{Fagerberg2014-pj}, and \textit{Ikzf4}, a transcription factor relevant for Treg stability~\citep{Sharma2013-ou}.
 
 The same approach applied to Treg cells from the spleen, mLN and bLN (Figure~\ref{fig:chap2_fig2}G) classified most central and effector Treg cells as Treg LT-like cells. Treg NLT-like cells, on the other hand, were more similar to Treg NLT and Treg suppressive cells. Both the mLN and the bLN had a higher proportion of Treg cells assigned as suppressive than spleen, which contained the highest fraction of Treg NLT cells. We confirmed the presence and proportions of Treg cell subpopulations in the Smart-seq2 datasets by matching these cells to the subpopulations found across LTs and NLTs in the 10x dataset (Figure~\ref{fig:appA_fig2}B).
@@ -73,6 +79,10 @@ Clustering of Tmem cells revealed multiple subpopulations (T helper-1 (Th1 cell)
 
 In summary, scRNA-seq allowed us to dissect the heterogeneity of Treg cells from LTs and NLTs. We identified NLT- and LT-like Treg cell subpopulations that suggest progressive cross-tissue adaptation to the NLT environment. We found a close correspondence between skin and colonic Treg NLT cells, whilst revealing differences in gene expression that might explain their adaptation to the two environments.
 
+
+\nomenclature[z-cTreg]{cTreg}{central Treg (cells)}
+\nomenclature[z-eTreg]{eTreg}{effector Treg (cells)}
+\nomenclature[z-Tfh]{Tfh}{T follicular helper (cells)}
 
 \section{Treg cells adapting to skin and colon share a transcriptional trajectory}
 \label{section2.4}
@@ -91,6 +101,8 @@ We then used the inferred LN-NLT trajectory to identify the cascade of transcrip
 
 In summary, we determined a continuous trajectory aligning Treg cell subpopulations from bLN, mLN, skin and colon according to the stage of recruitment and adaptation to the NLT environments. Furthermore, the consistent ordering of gene expression programmes shows that gene kinetics leading to NLT adaptation follows a similar regulatory sequence in both bLN-to-skin and mLN-to-colon trajectories.
 
+
+\nomenclature[z-BGPLVM]{BGPLVM}{Bayesian Gaussian Process Latent Variable Modelling}
 
 \section{Treg cell recruitment into skin and melanoma relies on common mechanisms}
 \label{section2.5}
@@ -116,6 +128,7 @@ Despite the similarities between melanoma and control trajectories, cells from b
 
 
 \nomenclature[z-PBS]{PBS}{Phosphate Buffer Saline}
+\nomenclature[z-MRD-BGPLVM]{MRD-BGPLVM}{Manifold Relevnce Determination-BGPLVM}
 
 \section{Conserved NLT identity in mouse and human}
 \label{section2.6}
@@ -175,6 +188,8 @@ Despite the conserved tissue-specific signatures, the differential paralog usage
 Overall, we reveal a dynamic adaptation of T cells as they traffic across tissues, and provide an open resource (data.teichlab.org) for investigating \textit{in vivo} CD4\textsuperscript{+} T cell phenotypes in mouse and human, to ultimately harness NLT CD4\textsuperscript{+} T cells as future therapeutic targets.
 
 
+\nomenclature[z-VAT]{VAT}{Visceral Adipose Tissue}
+
 \section{Methods}
 \label{section2.9}
 
@@ -187,6 +202,13 @@ Gene expression from Smart-seq2 scRNA-seq data was quantified in counts using Sa
 
 Standard scRNA-seq analysis (QC, differential expression and marker gene detection, and clustering) was performed using Seurat~\citep{Satija2015-ti}. All data was log-normalised using the NormaliseData function with a scale factor of 10000. Our expression data for different tissues is also available for user-friendly interactive browsing online at data.teichlab.org.
 
+\nomenclature[z-ERCC]{ERCC}{External RNA Controls Consortium}
+\nomenclature[z-EGFP]{EGFP}{Enhanced Green Fluorescent Protein}
+\nomenclature[z-ERCC]{ERCC}{External RNA Controls Consortium}
+\nomenclature[z-GRCm]{GRCm}{Genome Reference Consortium mouse}
+\nomenclature[z-GRCh]{GRCh}{Genome Reference Consortium human}
+\nomenclature[z-QC]{QC}{Quality Control}
+
 \subsection{scRNA-seq quality control}
 Quality control of 10x-derived data was made taking into account number of UMIs - keeping cells with between 1000 and 15000 UMI - and number of genes - keeping cells with between 700 and 3500 genes with at least 1 UMI (Table~\ref{table:tab_A_1}). While cells were not filtered by their mitochondrial read content, cells with an elevated number of these reads are eventually removed via clustering (see “Subpopulation detection in 10x data”).
 
@@ -194,8 +216,13 @@ For Smart-seq2 data, count values for each cell were grouped in an expression ma
 
 Importantly, we note that TCR detection greatly improved our filtering by excluding cell types captured by FACS that did not fit the intended categories. This is the case for iNKT cells - captured mostly together with spleen T memory cells - and ${\upgamma\updelta}$-T cells - sorted together with skin Tmem cells in the melanoma experiment. Indeed, we also identified a NKT population in the 10x dataset, mostly within the cells sorted as spleen Tmem cells, as well as some LN Tmem cells (Figure~\ref{fig:appA_fig1}B and~\ref{fig:appA_fig1}C). We cannot, however, state that these are “invariant”, since we have no access to their complete TCR chains. TCR filtering also enables removal of cell doublets by identifying cells expressing an excessive diversity of recombined TCR chains. Even in cases of no allelic exclusion for TCR ${\upalpha}$ and ${\upbeta}$ sequences, each cell would still only be able to produce two recombinants of each, allowing removal of cell doublets expressing more than two recombinants for a TCR locus. Lastly, we removed all cells not expressing any recombinant TCR in order to have a more stringent quality control. While in the human dataset the number of cells without a TCR was evenly distributed across tissues and cell types, there was a clear skew towards TCR absence in peripheral Treg cells (colon and skin) in the mouse datasets. These Treg cells did not appear to differ from the remaining population, having no differentially expressed genes or major differences in their overall number, presenting only a skew towards a higher number of reads (data not shown).
 
+\nomenclature[z-iNKT]{iNKT}{invariant Natural Killer T (cells)}
+
 \subsection{Dimensionality reduction methods}
 To obtain an overview of the datasets showing the relationships between cell population clusters, Principal Component Analysis (PCA) and tSNE were used. Before PCA, data was scaled using the ScaleData function (negative binomial model, normalising by the number of UMI and centering the data). PCA and tSNE were calculated using the RunPCA and RunTSNE functions, respectively. For each dataset, a different number of Principal Components (PCs) and values for perplexity were used (Table~\ref{table:tab_A_1}), chosen by visual inspection of an elbow plot representing the relative importance of each PC. With exception of the PCA projection for the complete 10x dataset, only highly variable genes were used, calculated using the FindVariableGenes function from Seurat with the parameter `num.bin` of 100 and `binning.method` of "equal${\_}$frequency". Using all genes for dimensionality reduction of the whole 10x dataset resulted in more accurate clustering, allowing for the identification of most contaminant cells on this first step (Figure~\ref{fig:appA_fig1}B). Plate-based datasets were treated separately as much as possible to avoid confounding batch effects from experiments performed separately.
+
+\nomenclature[z-PCA]{PCA}{Principal Component Analysis}
+\nomenclature[z-tSNE]{tSNE}{t-Distributed Stochastic Neighbor Embedding}
 
 \subsection{Subpopulation detection in 10x data}
 To find clusters in the data, we used the FindClusters function from Seurat, with the same number of principal components used for tSNE. Cluster annotation was done by inspecting markers detected by the FindAllMarkers function.
@@ -223,10 +250,14 @@ Immune cells are expected to migrate between LTs and NLTs. We assumed that this 
 
 For 10x data, the method was used on mLN and colon Treg cells. We then mapped bLN and skin Treg cells onto the same LV using the predict function from the BGPLVM module, in order to have a similar coordinate system for both trajectories. Running BGPLVM with all data together would achieve a similar result (not shown). A BGPLVM projection of bLN and skin Treg cells (Figure~\ref{fig:appA_fig3}B) shows an identical projection but with a wider gap between bLN and skin cells due to the large differences in cell numbers. We excluded spleen cells from this analysis to focus specifically on LN to NLT adaptation.
 
-Similar effects are also observed in the corresponding Smart-seq2 cells (Figure~\ref{fig:appA_fig4}D). We then show that all the LVs chosen as a “pseudospace variable” (LV0) have a similar effect between datasets by comparing the shared proportions of genes correlated with each of them (Figure~\ref{fig:appA_fig4}E). 
+Similar effects are also observed in the corresponding Smart-seq2 cells (Figure~\ref{fig:appA_fig4}D). We then show that all the LVs chosen as a “pseudospace variable” (LV0) have a similar effect between datasets by comparing the shared proportions of genes correlated with each of them (Figure~\ref{fig:appA_fig4}E).
+
+\nomenclature[z-ARD]{ARD}{Automatic Relevance Determination}
 
 \subsection{Identifying a common tissue migration trajectory in control and melanoma}
 Similarly to the steady-state, migration from the LN to the skin with a melanoma challenge is also expected. A common between-tissue Treg cell migration trajectory in control and melanoma conditions was obtained using Manifold Relevance Determination~\citep{Andreas_Damianou_Carl_Ek_Michalis_Titsias_Neil_Lawrence2012-do} (MRD). MRD works by having an underlying BGPLVM model whose dimensions can be shared or private between sections of the data. Having the prior knowledge that a cell-cycle effect is present in the data (Figure~\ref{fig:appA_fig5}A) and with the goal of obtaining a LV explaining tissue recruitment in both conditions, the melanoma dataset was divided into three sections for input: one with the expression in all cell-cycle associated genes, one with marker genes for any tissue, and one with the remaining genes. The importance of each section in each latent variable is shown in the ARD plot (Figure~\ref{fig:appA_fig5}C). The model was run allowing for 12 LVs as output, and the one highly influenced by tissue-specific genes but not cell-cycle or other genes was used as a migration trajectory for both conditions (Figure~\ref{fig:chap2_fig4}D). The effects captured by these LVs can be observed in BGPLVM projections for the individual conditions (Figure~\ref{fig:appA_fig5}E-G).
+
+\nomenclature[z-LV]{LV}{Latent Variable}
 
 \subsection{Switch-like genes in the migration latent variable}
 Gene expression changes in a continuous trajectory can be interpreted as a series of switch-like events. These can be modeled using a sigmoid curve, described by the following equation:
