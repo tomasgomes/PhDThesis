@@ -2,8 +2,8 @@
 %*******************************************************************************
 %*********************************** First Chapter *****************************
 %*******************************************************************************
-
 \chapter{Cellular identity in the genomics era}  %Title of the First Chapter
+\label{chap:intro}
 
 \ifpdf
     \graphicspath{{Chapter1/Figs/Raster/}{Chapter1/Figs/PDF/}{Chapter1/Figs/}}
@@ -54,7 +54,7 @@ Methods to sequence the transcriptome of individual cells started to be develope
 
 Initial developments focused on increasing sensitivity, since the original protocol was performed on cells from very early developmental stages, when they are larger and contain more RNA than most differentiated cell types. Different methodologies quantified gene expression by sequencing distinct transcript segments (either the 5' or the 3' end, or the full transctipt)~\citep{islam_characterization_2011,hashimshony_cel-seq:_2012,ramskold_full-length_2012,picelli_full-length_2014}. The idea of multiplexed scRNA-seq also started gaining traction with the use of multi-well plates or molecular barcodes for cells. The company Fluidigm eventually introduced the first commercially available microfluidics chips (called the "Fluidigm C1 system") for miniaturized cell isolation, RNA extraction and reverse transcription~\citep{brennecke_accounting_2013}. It is from this point that increased cell capture becomes the major technological driver (and has gained great importance as discussed in Section \ref{section1.3}). The major contributors to this have been nanodroplet-based technologies, that have put the number of profiled cells per dataset in the range of 10.000 to 100.000~\citep{macosko_highly_2015,klein_droplet_2015}. The importance of this increase in throughput has been demonstrated by Shekar and colleagues~\citep{shekhar_comprehensive_2016}, where they demonstrate that a Drop-seq dataset of approximately 25.000 cells sequenced at low depth could identify more \textit{bona fide} clusters than a smaller, more deeply sequenced Smart-seq2 dataset. Currently, most single-cell RNA-seq datasets use droplet-based technologies, chiefly the protocols designed for the Chromium instrument by 10x Genomics~\citep{zheng_massively_2017}, which have a higher sensitivity to detect different transcripts. Other more recent methods have followed the trend of increase in cell throughput by using multiplexed barcoding, which allows for different samples to be combined and reducing sample processing costs, reaching 10\textsuperscript{5}-10\textsuperscript{6} cells for less than \$0.01 per cell ~\citep{rosenberg_single-cell_2018,cao_single-cell_2019}. A list of the most up-to-date scRNA-seq methods can be found in Table~\ref{table:tab_1_1}.
 
-% table: Title; Description; Ref
+% table: Method; Ref
 \begin{table}[ht!] % p for putting it in the next page available
 \footnotesize
 \caption[Current methods for single-cell RNA-seq]{Current methods for single-cell RNA-sequencing}

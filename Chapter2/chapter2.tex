@@ -13,7 +13,7 @@
 
 Non-lymphoid tissues (NLTs) harbour a pool of adaptive immune cells with largely unexplored phenotype and development. We used single-cell RNA-seq to characterise 35000 CD4\textsuperscript{+} regulatory (Treg) and memory (Tmem) T cells in mouse skin and colon, their respective draining lymph nodes (LNs) and spleen. In these tissues, we identified Treg cell subpopulations with distinct degrees of NLT phenotype. Subpopulation pseudotime ordering and gene kinetics were consistent in recruitment to skin and colon, yet the initial NLT-priming in LNs and the final stages of NLT functional adaptation reflected tissue-specific differences. Predicted kinetics were recapitulated using an \textit{in vivo} melanoma-induction model, validating key regulators and receptors. Finally, we profiled human blood and NLT Treg and Tmem cells, and identified cross-mammalian conserved tissue signatures. In summary, we describe the relationship between Treg cell heterogeneity and recruitment to NLTs through the combined use of computational prediction and \textit{in vivo} validation.
 
-This chapter has been published in \textit{Immunity} as \textit{Single-cell transcriptomics of regulatory T cells reveals trajectories of tissue adaptation}~\citep{miragaia_single-cell_2019}, with the exception of Section~\ref{section2.7} and parts of Sections~\ref{section2.8} and~\ref{section2.9}. The Methods section only includes the computational steps. The remaining experimental methods, as well as the supplementary figures, can be found in Appendix~\ref{appendix:treg}.
+This chapter has been published in \textit{Immunity} as \textit{Single-cell transcriptomics of regulatory T cells reveals trajectories of tissue adaptation}~\citep{miragaia_single-cell_2019}, with the exception of Section~\ref{section2.2.6} and parts of Sections~\ref{section2.3} and~\ref{section2.4}. The Methods section in this chapter only includes the computational steps. The remaining experimental methods, as well as the supplementary figures, can be found in Appendix~\ref{appendix:treg}.
 
 \textbf{Additional contributions}: experiments in this chapter were performed by Ricardo J Miragaia. The study was designed by Ricardo J Miragaia, Sarah A Teichmann, Agnieszka Chomka, Fiona Powrie, and myself. Ricardo J Miragaia is a leading co-author of the manuscript. Full acknowledgements can be found in Appendix~\ref{appendix:treg}.
 
@@ -35,8 +35,10 @@ To provide a deeper insight into Treg cell populations in NLTs, we analysed sing
 \nomenclature[z-bLN]{bLN}{brachial Lymph Nodes}
 \nomenclature[z-mLN]{mLN}{mesenteric Lymph Nodes}
 
-\section{Treg and Tmem cell identity in NLTs is driven by a common expression module}
+\section{Results}
 \label{section2.2}
+\subsection{Treg and Tmem cell identity in NLTs is driven by a common expression module}
+\label{section2.2.1}
 We performed scRNA-seq on isolated CD4\textsuperscript{+}Foxp3\textsuperscript{+} (Treg) and CD4\textsuperscript{+}Foxp3\textsuperscript{-}CD44high memory (Tmem) T cells (Figure~\ref{fig:appA_fig1}A) from two barrier NLT sites - the colonic lamina propria (hereinafter referred to as colon) and the skin - their lymphoid counterparts in the draining mesenteric and brachial lymph nodes (mLN and bLN), and the spleen from a Foxp3-GFP mouse reporter line~\citep{Bettelli2006-dw} (Figure~\ref{fig:chap2_fig1}A). We will refer to Treg and Tmem cells together as CD4\textsuperscript{+} T cells. For each sorted population, single-cells were captured using the droplet-based microfluidic system Chromium (10x Genomics), hereinafter referred to as 10x. We obtained 30396 good quality cells (see Methods, Figure~\ref{fig:appA_fig1}C, Table~\ref{table:tab_A_1}). Using the same gating strategy, two Smart-seq2~\citep{picelli_full-length_2014} plate-based datasets were produced independently. These confirmed findings drawn from the 10x, and complemented them with higher gene coverage and full T cell receptor (TCR) sequences.
 
 \begin{figure}[ht!] 
@@ -53,8 +55,8 @@ Together, the scRNA-seq datasets collected provide a comprehensive overview of T
 
 \nomenclature[z-DE]{DE}{Differentially Expressed (genes)}
 
-\section{Heterogeneity within LT and NLT Treg cell populations}
-\label{section2.3}
+\subsection{Heterogeneity within LT and NLT Treg cell populations}
+\label{section2.2.2}
 Treg cell phenotypical and functional heterogeneity has been extensively discussed in recent years~\citep{Josefowicz2012-nh,Campbell2011-uc}. Clustering our data within each tissue grouped Treg cells into distinct subpopulations (Figure~\ref{fig:chap2_fig2}A) with clearly defined marker genes (Figure~\ref{fig:chap2_fig2}B). Across lymphoid organs, we identified central and effector Treg (cTreg and eTreg) cell subsets~\citep{Cretney2011-zd,Vasanthakumar2015-jw}. cTreg cells express typical LT-associated markers, such as \textit{Tcf7}, \textit{Bcl2}, \textit{Sell}, \textit{S1pr1}, while eTreg cells expressed a subset of NLT-associated genes, like \textit{Tnfrsf9}, \textit{Relb}, \textit{Ikzf2} and \textit{Pdcd1}. We also detected a subpopulation of Treg cells with high expression of \textit{Stat1} and interferon stimulated genes exclusively in the bLN. A fourth, less frequent population in lymphoid tissues (~5-10\%; Figure~\ref{fig:chap2_fig2}C), which we named Treg NLT-like cells, expresses eTreg cell markers as well as genes characteristic of NLT T cells, such as \textit{Itgae}, \textit{Rora}, \textit{Fgl2}, \textit{Klrg1} (Figure~\ref{fig:chap2_fig2}B). We hypothesize that this population is primed to migrate and adapt to NLTs. Indeed, DE genes between NLT-like Treg cells from mLN and bLN revealed that the colon-homing molecules \textit{Ccr9} and \textit{Itga4}, as well as their regulator \textit{Batf} were upregulated specifically in the mLN, while \textit{Cxcr3} and \textit{Itgb1} were present in the bLN (Figure~\ref{fig:chap2_fig2}E). These differences were not observed between other LN subpopulations (data not shown).
 
 \begin{figure}[tp!] 
@@ -84,8 +86,8 @@ In summary, scRNA-seq allowed us to dissect the heterogeneity of Treg cells from
 \nomenclature[z-eTreg]{eTreg}{effector Treg (cells)}
 \nomenclature[z-Tfh]{Tfh}{T follicular helper (cells)}
 
-\section{Treg cells adapting to skin and colon share a transcriptional trajectory}
-\label{section2.4}
+\subsection{Treg cells adapting to skin and colon share a transcriptional trajectory}
+\label{section2.2.3}
 The mechanisms underlying Treg cell recruitment and adaptation from LT to NLT are far from understood. Having identified multiple subpopulations at different stages of NLT adaptation (Figure~\ref{fig:chap2_fig2}D), we further dissected the dynamics of this transition. We obtained evidence of CD4\textsuperscript{+} T cell recruitment from LT to NLT by reconstructing TCR clonotypes using TraCeR~\citep{stubbington_t_2016} from the Smart-seq2 datasets. This showed Tmem and Treg cell clones present in LNs and respective NLTs (Figure~\ref{fig:appA_fig4}A and~\ref{fig:appA_fig4}B), suggesting cell migration between them.
 
 To identify Treg cell LN-to-NLT adaptation trends in the data, we reconstructed a pseudospace relationship between cells by obtaining latent variables (LV) from Bayesian Gaussian Process Latent Variable Modelling (BGPLVM, see Methods)~\citep{Michalis_K_Titsias2010-na}. Along the mLN to colon trajectory laid out by LV0, Treg cells are ordered from cTreg to eTreg cells, followed by NLT-like and LT-like Treg cells, and ending with the overlapping Treg suppressive and Treg NLT cell subpopulations (Figure~\ref{fig:chap2_fig3}A, “Colon” density plot, Figure~\ref{fig:appA_fig3}A). This order matches the increasing expression of NLT marker genes and decrease of LT ones across mLN subpopulations (Figure~\ref{fig:chap2_fig2}B and D). Importantly, Treg NLT-like cells from the mLN partially mixed with Treg LT-like cells from the colon, supporting the notion that NLT adaptation is a continuous process spanning LT and NLT. Overall, LV0 accurately represented the progressive migration and adaptation of Treg cells to the NLT environment, providing a reference to study the gene expression dynamics along this process. Skin and bLN Treg cells were projected onto the latent space defined for colon and mLN, resulting in a similar subpopulation distribution (Figure~\ref{fig:chap2_fig3}A, “Skin” density plot; see Methods). Nevertheless, a similar projection was observed when using just those cells (Figure~\ref{fig:appA_fig3}A and B). Applying the same approach to the Smart-seq2 datasets yielded similar distributions of the inferred cell subpopulations (Figure~\ref{fig:appA_fig2}B) along the LT-to-NLT adaptation trajectory, as well as considerable overlaps between LV correlated genes (Figure~\ref{fig:appA_fig3}C-E). The use of velocyto~\citep{manno_rna_2018} to infer the directionality of adaptation suggests that most Treg cells found in the NLTs, as well as some of the NLT-like Treg and eTreg cells, are adapting towards a more pronounced NLT phenotype (Figure~\ref{fig:appA_fig3}C).
@@ -104,8 +106,8 @@ In summary, we determined a continuous trajectory aligning Treg cell subpopulati
 
 \nomenclature[z-BGPLVM]{BGPLVM}{Bayesian Gaussian Process Latent Variable Modelling}
 
-\section{Treg cell recruitment into skin and melanoma relies on common mechanisms}
-\label{section2.5}
+\subsection{Treg cell recruitment into skin and melanoma relies on common mechanisms}
+\label{section2.2.4}
 To validate our findings in steady-state cells, we used a mouse melanoma model to investigate if Treg cell migration and adaptation trajectory to peripheral tissues could be recapitulated. Previous studies analysing human TCR repertoires~\citep{Sherwood2013-jf,Plitas2016-rg} have shown that tumour-Treg cells are likely to be recruited \textit{de novo} from LTs and not from the adjacent NLT, despite exhibiting a phenotype similar to that of NLT Treg cells~\citep{Plitas2016-rg,De_Simone2016-yo}. We therefore purified Treg and Tmem cells from B16.F10 melanomas or PBS controls 11 days after subcutaneous implantation into Foxp3-IRES-eGFP reporter mice~\citep{Haribhai2007-tk} to produce a plate-based scRNA-seq dataset (Figure~\ref{fig:chap2_fig4}A; see Methods).
 
 \begin{figure}[pt] 
@@ -130,8 +132,8 @@ Despite the similarities between melanoma and control trajectories, cells from b
 \nomenclature[z-PBS]{PBS}{Phosphate Buffer Saline}
 \nomenclature[z-MRD-BGPLVM]{MRD-BGPLVM}{Manifold Relevnce Determination-BGPLVM}
 
-\section{Conserved NLT identity in mouse and human}
-\label{section2.6}
+\subsection{Conserved NLT identity in mouse and human}
+\label{section2.2.5}
 
 \begin{figure}[pt] 
 \centering    
@@ -149,8 +151,8 @@ In several instances we observed the expression pattern of one gene being substi
 Our cross-species comparison suggests that despite cross-species differences, the NLT Treg cell adaptation program defined in mouse is generally conserved in human. 
 
 
-\section{Classfication of Treg populations across species}
-\label{section2.7}
+\subsection{Classfication of Treg populations across species}
+\label{section2.2.6}
 The increase in the number of datasets from a variety of species enables the comparison of cell types between them. In the previous section, it was explained how the core NLT Treg cell programmes were conserved between mouse and human, based on one-to-one orthologs. This type of orthologs make up the majority of conserved genes between these species, but one-to-many and many-to-many orthologs can also have important roles in cell identity and function.
 
 \begin{figure}[pt] 
@@ -171,7 +173,7 @@ To examine the contribution of different types of genes for cell identity predic
 
 
 \section{Discussion}
-\label{section2.8}
+\label{section2.3}
 Our work sheds light on the phenotype of skin and colon Treg cells. We profiled NLT Treg and Tmem cells to identify global relationships between cell populations, discriminating general CD4\textsuperscript{+} and specific Treg cell markers in NLT. We found that these Treg populations conserve fundamental traits shared across the skin and colon compartments, namely a substantial prevalence of genes part of the TNFRSF-NF-${\upkappa}$B axis.
 We leveraged the single-cell resolution of our data to explain Treg cell heterogeneity in the context of LT-to-NLT transition. Besides the eTreg cell state previously described in lymphoid organs~\citep{Cretney2011-zd}, we found two transitional subpopulations, Treg NLT-like cells in the lymphoid tissues and Treg LT-like cell in the non-lymphoid ones, which together explain the cross-tissue transition from central Treg to Treg NLT cell populations. NLT-like Treg cells in the mLN and bLN showed extensive NLT-priming, including the upregulation of tissue-specific homing-molecules to the drained NLT. Others have demonstrated that a subpopulation of spleen Treg cells can express a partial visceral adipose tissue (VAT) signature and later give rise to fully-mature VAT-Treg cells upon migration~\citep{Li2018-xq}, implying that this is valid for various tissues and should be considered in the design of future precision medicine strategies involving targeting of Treg cells to NLTs.
 
@@ -191,7 +193,7 @@ Overall, we reveal a dynamic adaptation of T cells as they traffic across tissue
 \nomenclature[z-VAT]{VAT}{Visceral Adipose Tissue}
 
 \section{Methods}
-\label{section2.9}
+\label{section2.4}
 
 For further experimental methods see Appendix~\ref{appendix:treg}.
 
