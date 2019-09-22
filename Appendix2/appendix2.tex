@@ -1,12 +1,16 @@
 %!TEX root = ../thesis.tex
 % ******************************* Thesis Appendix B ********************************
 
-\chapter{Installing the CUED class file}
+\chapter{Additional information to Chapter 4} \label{appendix:CTsub}
+This Appendix contains supplementary figures for Chapter~\ref{chap:CT_bio}.
 
-\LaTeX.cls files can be accessed system-wide when they are placed in the
-<texmf>/tex/latex directory, where <texmf> is the root directory of the user’s \TeX installation. On systems that have a local texmf tree (<texmflocal>), which
-may be named ``texmf-local'' or ``localtexmf'', it may be advisable to install packages in <texmflocal>, rather than <texmf> as the contents of the former, unlike that of the latter, are preserved after the \LaTeX system is reinstalled and/or upgraded.
 
-It is recommended that the user create a subdirectory <texmf>/tex/latex/CUED for all CUED related \LaTeX class and package files. On some \LaTeX systems, the directory look-up tables will need to be refreshed after making additions or deletions to the system files. For \TeX Live systems this is accomplished via executing ``texhash'' as root. MIK\TeX users can run ``initexmf -u'' to accomplish the same thing.
+\section{Supplementary Figures}
+\label{sectionB1.1}
 
-Users not willing or able to install the files system-wide can install them in their personal directories, but will then have to provide the path (full or relative) in addition to the filename when referring to them in \LaTeX.
+\begin{figure}[ht!] 
+\centering    
+\includegraphics[width=1.0\textwidth]{Appendix2/Figs/PTPRC_EPCAM_human.png} % change word in curlies to change figure
+\caption[Expression of \textit{PTPRC} and \textit{EPCAM} in human data collection]{\textbf{Expression of \textit{PTPRC} and \textit{EPCAM} in human data collection (Related to Figure~\ref{fig:chap4_cha})}\newline2D-binned plot of single-cell expression of \textit{PTPRC} (encoding for the CD45 receptor, an immune cell marker), and \textit{EPCAM} (an epithelial cell marker). Inset table (top right) shows the number of cell expressing (T) or not (F) each of the genes. Cells expressing both genes are likely doublets or affected by ambient RNA in droplet-based experiments.}
+\label{fig:appB_ptprc}
+\end{figure}
