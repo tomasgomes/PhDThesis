@@ -12,15 +12,21 @@
 \fi
 Cell identity can be defined by the genes it expresses. A continuously increasing number of studies has applied scRNA-seq to profile cells from various body locations and describe the cells that make up a tissue, in the steady-state or disease. A smaller number of studies have focused on the differences between the cell types detected in different tissues~\citep{miragaia_single-cell_2019,scott_transcription_2018}. However, we don't yet know how variable transcriptome of most cell types is between tissues, and how it relates to the tissue transcriptome.
 
-This Chapter outlines the construction of a human cell type reference based on single-cell transcriptomics, by applying the \textit{CellTypist} framework presented in Chapter~\ref{chap:CT_method}. It will be demonstrated how this reference can be used for automatic classification of newly generated data and discuss its current advantages and limitations. The present Chapter will also focus on the interpretability of this pipeline, and reveal the genes driving cell identity across tissues. We will further dissect the relationships across tissues established by \textit{CellTypist}, and explore the influence of different cell types in tissue biology.
+This Chapter outlines the construction of a human cell type reference based on single-cell transcriptomics, by applying the \textit{CellTypist} framework presented in Chapter~\ref{chap:CT_method}. The present Chapter will focus on the interpretability of this pipeline, and reveal the genes driving cell identity across tissues. We will further dissect the relationships across tissues established by \textit{CellTypist}, and explore the influence of different major cell types in tissue biology.
 
 The work presented in this Chapter was partly developed with the assistance of Ni Huang, who contributed to the collection and integration of published datasets. The analyses here performed are based on the methodology outlined in Chapter~\ref{chap:CT_method}. Supplementary figures are included in Appendix~\ref{appendix:CTsub}.
 
 
 \section{Introduction}
 \label{section4.1}
+% defining and cataloguing cell types
+The definition of cell type is, like many in biology, a working concept. Cells have been classified based on different aspects of their morphology, molecular phenotype, or function. Historically, this knowledge of cell identity has been restricted to their fields of study, hindering the development  of an integrative, systemic perspective of cell types in the body. Single-cell RNA-seq technologies (scRNA-seq) are now challenging this perspective, since they allow for an unbiased profiling of cell identity through the transcriptome. As scRNA-seq data acquisition grows~\citep{svensson_exponential_2018}, so does our understanding of the cellular make up of the profiled tissues. The Human Cell Atlas Consortium has defined as one of its goals to develop a cellular taxonomy~\citep{regev_human_2017}, which is necessarily harmonised across tissues. Nonetheless, a unified, transcriptome-driven perspective of cell identity is still lacking.
 
+% understanding tissue and cell function
+The molecular basis for the relationships between tissues were initially probed by high-throughput methods; first microarrays~\citep{enard_intra-_2002}, and later with RNA-seq~\citep{mortazavi_mapping_2008,brawand_evolution_2011,barbosa-morais_evolutionary_2012}. More recent studies are now linking this transcriptome cross-tissue  variability with genome variants~\citep{consortium_genotype-tissue_2015,gtex_consortium_genetic_2017}, unravelling the regulatory determinants behind tissue biology. Further analysis have delved into the importance of transcription factors for tissue identity~\citep{sonawane_understanding_2017}, revealing that tissue specificity lies not only in these molecules but mostly on the tissue-specific regulatory roles they play, while also showing that transcription factors are less likely to be identified as tissue-specific than other genes. An integrated predictive model of cell identity should be able to reveal patterns relating tissues through cell identity relationships, as well as offer a broad perspective of the genes determining cell types.
 
+% this chapter
+Here we will expand on the \textit{CellTypist} pipeline previously defined, and how it can be used to probe cellular identity in human primary cells across body locations. We detail the collection and integration of various human datasets, totalling close to 1.5 million cells from 21 tissues. After applying \textit{CellTypist}, its integrated results are examined for cross tissue relationships. The pipeline can recapitulate known tissue associations, caused either by comparable cell sampling (e.g. tissues solely profiled for immune cells), or by functional similarity. These are evident both at the tissue integration stage, as well as in the top genes learned by the model that define cell groupings in each tissue. These genes are further examined for patterns in cell identity definition, revealing a global pattern for genes coding for functional effector molecules (i.e. receptors and secreted proteins) to be more pivotal in defining cell identity than others involved in genomic regulation. Finally, we discuss on the potential uses and implementation of a scRNA-seq-derived cell type reference.
 
 
 \section{Results}
@@ -152,21 +158,33 @@ In conclusion, \textit{CellTypist} can reveal the relationships of cell identity
 
 \subsection{Gene expression driving cell identity}
 \label{section_genes}
-Integration and model training with \textit{CellTypist} allows us to have a global perspective of the influence of gene expression patterns in defining cell type and tissue identity.
+Usage of logistic regression as a classification model in \textit{CellTypist} allows for a direct evaluation of the genes driving the classification for each cluster through their learned coefficients. With a comprehensive cell type reference, we can start to unravel what are the key determinants of cell identity across tissues.
 
-\begin{figure}[ht!]
+\begin{figure}[pht!]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapter4/Figs/chap4_genesAnalysis.png} % change word in curlies to change figure
-    \caption[]{\textbf{}\newline\textbf{(A)}.}
+    \caption[Genes driving cell identity definition across tissues]{\textbf{Genes driving cell identity definition across tissues}\newline\textbf{(A)} Clustered heatmap of the number of genes in common between pairs of \textit{CellTypist} clusters (thr1 = 0.99, thr2 = 0.8). Genes per cluster were determined as those with the top 500 coefficients as learned by the model. Values in the diagonal (number of genes per cluster, 500) were set to 0. \textbf{(B)} Upset plot counting the number of clusters enriched for a group of genes with a specific function. \textbf{(C)} Heatmap of number of clusters per tissue (y-axis) enriched for groups of genes with a specific function (x-axis).}
     \label{fig:chap4_genetypes}
 \end{figure}
 
+Relationships between clusters were probed by counting the number of pairwise shared genes. The top 500 genes were used to avoid a hard threshold across clusters, since the top coefficient values can be very variable between them. Clustering once more revealed a division between most immune and non-immune clusters (Figure~\ref{fig:chap4_genetypes}A). Moreover, various clusters containing cells from the same tissue were also grouped together, hinting at the existence of gene expression programmes shared by the different cell types within a tissue.
+
+The concept of "cell type" is still inconclusively defined, yet it can be intimately related to a cell's molecular phenotype, i.e. the molecules driving cellular function. These drivers can either be the effector molecules directly responsible for the cell's array of functions, or the genomic regulators controlling the expression of genes involved in these functions. It has been showed that tissue-specificity at the gene expression level is mostly due to transcription factor-gene regulatory interactions~\citep{sonawane_understanding_2017}. The results from \textit{CellTypist} were used to assess what types of genes were more often at the top of the model coefficient rankings, which reflect the importance of expression of that gene in classifying a cell type. The following gene categories were tested for enrichment (see Methods Sections~\ref{section4.4_genelists} and~\ref{section4.4_enr}): Transcription Factors, Chromatin Modulators, Kinases and Phosphatases, Ligases and Deubiquitinases, Catalytic enzymes, Housekeeping genes, Receptors, Secreted proteins, Transmembrane proteins, and Peripheral membrane proteins. Analysis showed a consistent pattern for all surveyed models of predominantly enriched membrane and secreted proteins (Figure~\ref{fig:chap4_genetypes}B, Figure~\ref{fig:appB_supupset}). A number of clusters also had transcription factors enriched in their top hits, albeit in markedly lower number. Enrichment for the tested gene groups appeared evenly distributed across tissues, and did not group them in any meaningful manner (Figure~\ref{fig:chap4_genetypes}C). Lastly, it is also notable that only a fraction of the total clusters showed enrichment for any of the classes tested, which could be due to the restrictive test that only looks for enrichment at the very top genes, as well as the non-comprehensive list of functions tested.
+
+These results point to the greater importance of the gene expression regulatory network's output molecules (genes coding for membrane and secreted proteins), in determining the identity of a cell.
 
 
-
-\subsection{CellTypist as a functional reference for annotation}
+\subsection{CellTypist as an operational reference for annotation}
 \label{section_test}
 % mention plans for a database
+The operational goal of \textit{CellTypist} is to be used as an automatic classification framework for scRNA-seq data. Data integrated through the pipeline is used as an unbiased model of cell identity, to predict cell type labels in unannotated data.
+
+\begin{figure}[pht!] 
+\centering
+\includegraphics[scale=0.83]{Chapter4/Figs/chap4_preds.png} % change word in curlies to change figure
+\caption[\textit{CellTypist} predictions for lung data from~\citep{madissoon_lung_2019}]{\textbf{\textit{CellTypist} predictions for lung data from~\citep{madissoon_lung_2019}}\newline\textbf{(A)} UMAP projections coloured by the original cell type annotations (left) and those predicted by \textit{CellTypist} (right) using thr1 = 0.99 and thr2 = 0.8. \textbf{(B)} Proportion of clusters (rows) matching each annotated cell type (columns). \textbf{(C)} Proportion of annotated cell types (rows) included in each cluster (columns). Only clusters including at least 10\% of a given cell type were included.}
+\label{fig:chap4_preds}
+\end{figure}
 
 
 \section{Discussion}
@@ -186,10 +204,13 @@ This large human cell type reference can be very useful to the genomics communit
 %% data augmentation/downsampling can help
 
 
-% gene biology
-
-
 %tissue biology
+
+
+% gene biology
+%% more detailed conclusions can be taken once the reference is uniformly annotated/if more annotated data is included (because we can now go beyond tissues/clusters to actual cell types)
+%% discuss how more accurate gene groups can give more accurate results
+
 
 
 \section{Methods}
@@ -218,6 +239,8 @@ The groupings obtained were used to train a logistic regression model (Chapter~\
 
 \subsection{Obtaining gene group lists}
 \label{section4.4_genelists}
+The groups of genes here presented were chosen to reflect various broad functions present in cells. They are not exhaustive, and overlaps between gene sets exist due to the ambiguity of some categories.
+
 \textit{GO Terms}: GO Terms were downloaded using the biomaRt R package~\citep{durinck_mapping_2009}. Genes from different terms were then grouped in the following categories (similar to~\citep{hagai_gene_2018}): chromatin modulators (GO:0006338 (chromatin remodelling), GO:0003682 (chromatin binding), GO:0042393 (histone binding), and GO:0016568 (chromatin modification)); kinases and phosphatases (GO:0004672 (protein kinase activity) and GO:0004721 (phosphoprotein phosphatase activity)) and catalytic enzymes (GO:0003824 (catalytic activity)).
 
 \textit{Transcription Factors}: Human transcription factors were obtained from AnimalTFDB v3.0 (~\url{http://bioinfo.life.hust.edu.cn/AnimalTFDB/})~\citep{hu_animaltfdb_2019}.
