@@ -32,15 +32,226 @@ Normal regions of bowel adjacent to resected colorectal tumours were prepared as
 10mL blood from skin donors were collected into EDTA (Invitrogen). Density centrifugation with Lymphoprep (STEMCELL Technologies) was performed according to manufacturer’s instructions. Recovered cells were cryopreserved by pelleting and resuspending in 1ml heat-inactivated fetal calf serum containing 10${\%}$ DMSO, and storing at -80ºC. Cryovials were later thawed in water bath, then rapidly being transferred to warmed medium (RPMI 1640 (GIBCO) with 100IU/ml penicillin, 100${\upmu}$g/ml streptomycin, 2mM L-glutamine (GIBCO), 10${\%}$ FCS (Sigma-Aldrich)) and filtered through a 100-${\upmu}$m filter.
 
 \subsection{Flow cytometry and single-cell RNA sequencing}
-Mouse and human cell suspensions were sorted as described in Figures~\ref{fig:chap2_fig1}A, ~\ref{fig:chap2_fig4}A, ~\ref{fig:chap2_fig5}A, and~\ref{fig:appA_fig1}A.
+Mouse and human cell suspensions were sorted as described in Figures~\ref{fig:chap2_fig1}A, ~\ref{fig:chap2_fig4}A,~\ref{fig:chap2_fig5}A, and~\ref{fig:appA_fig1}A.
 
-Droplet-based scRNA-seq datasets were produced using a Chromium system (10x Genomics), referred to as 10x. Cell populations of interest were sorted, manually counted, and their concentrations adjusted to enable the capture of ~5000 cells (except for skin Treg and Tmem cells, for which we aimed to capture ~300 each). The standard protocol for the 10x single cell 3’ kit (V2 chemistry) was followed and each cell population loaded onto a separate chip inlet. We ran each sample on one lane of Illumina HiSeq 4000, following manufacturer’s recommendations.
+Droplet-based scRNA-seq datasets were produced using a Chromium system (10x Genomics), referred to as 10x. Cell populations of interest were sorted, manually counted, and their concentrations adjusted to enable the capture of \~5000 cells (except for skin Treg and Tmem cells, for which we aimed to capture \~300 each). The standard protocol for the 10x single cell 3’ kit (V2 chemistry) was followed and each cell population loaded onto a separate chip inlet. We ran each sample on one lane of Illumina HiSeq 4000, following manufacturer’s recommendations.
 
 Two plate-based scRNA-seq datasets: the “colon dataset”, including Treg and Tmem cells from colon, mLN and spleen, and the “skin dataset” from skin, bLN and spleen. Single cells were sorted in 2${\upmu}$l of Lysis Buffer (1:20 solution of RNase Inhibitor (Clontech) in 0.2${\%}$ v/v Triton X-100 (Sigma-Aldrich)) in 96 well plates, spun down and immediately frozen at -80ºC. Smart-seq2 protocol~\citep{picelli_full-length_2014} was largely followed to obtain mRNA libraries from single cells. Oligo-dT primer, dNTPs (ThermoFisher) and ERCC RNA Spike-In Mix (1:50,000,000 final dilution, Ambion) were then added. Reverse Transcription and PCR were performed as previously published~\citep{picelli_full-length_2014}, using 50U of SMARTScribe™ Reverse Transcriptase (Clontech). The cDNA libraries for sequencing were prepared using Nextera XT DNA Sample Preparation Kit (Illumina), according to the protocol supplied by Fluidigm. Libraries from single cells were pooled and purified using AMPure XP beads (Beckman Coulter). Pooled samples were sequenced on an Illumina HiSeq 2500 (paired-end 100-bp reads) or Illumina HiSeq 2000 v4 chemistry (paired-end 75-bp reads) aiming at an average depth of 1 million reads/cell.
 
 
 \section{Supplementary Tables and Figures}
 \label{sectionA1.2}
+
+\begin{table}[H]
+\scriptsize
+\caption[Batch details for the Mouse steady-state Smart-seq2 data]{Batch details for the Mouse steady-state Smart-seq2 data.}
+\centering
+\label{table:tab_A_batch_SS2_SS}
+\begin{tabular}{lllllll}
+  \toprule
+Experiment & Tissue.Cell Type & Condition & Donor & Plate/Chip & Plate/Chip date & Library Date \\ 
+  \midrule
+  mouse\_colon & spleen.Treg & Steady-state & Pool & mouse\_colon\_5 & 25/05/2015 & 17/09/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_14 & 27/05/2015 & 17/09/2015 \\ 
+  mouse\_colon & colon.Tmem & Steady-state & Pool & mouse\_colon\_18 & 28/05/2015 & 17/09/2015 \\ 
+  mouse\_colon & LN.Treg & Steady-state & Pool & mouse\_colon\_10 & 25/05/2015 & 17/09/2015 \\ 
+  mouse\_colon & LN.Tmem & Steady-state & Pool & mouse\_colon\_11 & 28/05/2015 & 17/09/2015 \\ 
+  mouse\_colon & LN.Treg & Steady-state & Pool & mouse\_colon\_9 & 21/09/2015 & 10/06/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_15 & 29/09/2015 & 10/06/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_16 & 30/09/2015 & 10/06/2015 \\ 
+  mouse\_colon & spleen.Tmem & Steady-state & Pool & mouse\_colon\_4 & 30/09/2015 & 10/06/2015 \\ 
+  mouse\_colon & spleen.Treg & Steady-state & Pool & mouse\_colon\_7 & 29/09/2015 & 10/06/2015 \\ 
+  mouse\_colon & spleen.Treg & Steady-state & Pool & mouse\_colon\_7 & 29/09/2015 & 10/01/2015 \\ 
+  mouse\_colon & LN.Tmem & Steady-state & Pool & mouse\_colon\_11 & 28/05/2015 & 10/06/2015 \\ 
+  mouse\_colon & colon.Tmem & Steady-state & Pool & mouse\_colon\_18 & 28/05/2015 & 10/06/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_16 & 30/09/2015 & 10/01/2015 \\ 
+  mouse\_colon & LN.Treg & Steady-state & Pool & mouse\_colon\_9 & 21/09/2015 & 10/01/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_15 & 29/09/2015 & 10/01/2015 \\ 
+  mouse\_colon & colon.Tmem & Steady-state & Pool & mouse\_colon\_18 & 28/05/2015 & 10/01/2015 \\ 
+  mouse\_colon & spleen.Tmem & Steady-state & Pool & mouse\_colon\_4 & 30/09/2015 & 10/01/2015 \\ 
+  mouse\_colon & LN.Tmem & Steady-state & Pool & mouse\_colon\_11 & 28/05/2015 & 10/01/2015 \\ 
+  mouse\_colon & spleen.Treg & Steady-state & Pool & mouse\_colon\_7 & 29/09/2015 & 10/08/2015 \\ 
+  mouse\_colon & LN.Treg & Steady-state & Pool & mouse\_colon\_9 & 21/09/2015 & 10/08/2015 \\ 
+  mouse\_colon & spleen.Tmem & Steady-state & Pool & mouse\_colon\_4 & 30/09/2015 & 10/08/2015 \\ 
+  mouse\_colon & LN.Tmem & Steady-state & Pool & mouse\_colon\_11 & 28/05/2015 & 10/08/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_15 & 29/09/2015 & 10/08/2015 \\ 
+  mouse\_colon & LN.Treg & Steady-state & Pool & mouse\_colon\_9 & 21/09/2015 & 10/07/2015 \\ 
+  mouse\_colon & colon.Tmem & Steady-state & Pool & mouse\_colon\_18 & 28/05/2015 & 10/08/2015 \\ 
+  mouse\_colon & colon.Treg & Steady-state & Pool & mouse\_colon\_15 & 29/09/2015 & 10/07/2015 \\ 
+  mouse\_colon & colon.Tmem & Steady-state & Pool & mouse\_colon\_18 & 28/05/2015 & 10/07/2015 \\ 
+  mouse\_colon & spleen.Treg & Steady-state & Pool & mouse\_colon\_7 & 29/09/2015 & 10/07/2015 \\ 
+  mouse\_colon & spleen.Tmem & Steady-state & Pool & mouse\_colon\_4 & 30/09/2015 & 10/07/2015 \\ 
+  mouse\_colon & LN.Tmem & Steady-state & Pool & mouse\_colon\_11 & 28/05/2015 & 10/07/2015 \\ 
+  mouse\_skin & skin.Treg & Steady-state & Pool & mouse\_skin\_1 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Tmem & Steady-state & Pool & mouse\_skin\_1 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Treg & Steady-state & Pool & mouse\_skin\_2 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Tmem & Steady-state & Pool & mouse\_skin\_2 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Treg & Steady-state & Pool & mouse\_skin\_3 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Tmem & Steady-state & Pool & mouse\_skin\_3 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Treg & Steady-state & Pool & mouse\_skin\_4 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & skin.Tmem & Steady-state & Pool & mouse\_skin\_4 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & skin.Treg & Steady-state & Pool & mouse\_skin\_5 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & skin.Tmem & Steady-state & Pool & mouse\_skin\_5 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & spleen.Treg & Steady-state & Pool & mouse\_skin\_8 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & spleen.Tmem & Steady-state & Pool & mouse\_skin\_8 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & spleen.Treg & Steady-state & Pool & mouse\_skin\_9 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & spleen.Tmem & Steady-state & Pool & mouse\_skin\_9 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & LN.Treg & Steady-state & Pool & mouse\_skin\_14 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & LN.Tmem & Steady-state & Pool & mouse\_skin\_14 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & LN.Treg & Steady-state & Pool & mouse\_skin\_15 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & LN.Tmem & Steady-state & Pool & mouse\_skin\_15 & 08/04/2017 & 19/04/2017 \\ 
+  mouse\_skin & LN.Treg & Steady-state & Pool & mouse\_skin\_16 & 08/04/2017 & 18/04/2017 \\ 
+  mouse\_skin & LN.Tmem & Steady-state & Pool & mouse\_skin\_16 & 08/04/2017 & 18/04/2017 \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htp!]
+\scriptsize
+\caption[Batch details for the Mouse melanoma Smart-seq2 data]{Batch details for the Mouse melanoma Smart-seq2 data.}
+\centering
+\label{table:tab_A_batch_SS2_mel}
+\begin{tabular}{lllllll}
+  \toprule
+Experiment & Tissue.Cell Type & Condition & Donor & Plate/Chip & Plate/Chip date & Library Date \\ 
+  \midrule
+  mouse\_mel & skin.Treg & Tumour & T1 & mouse\_mel\_641 & 01/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Tumour & T2 & mouse\_mel\_641 & 01/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C1 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C2 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C3 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C4 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C4 & mouse\_mel\_645 & 01/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C5 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C5 & mouse\_mel\_645 & 01/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Control & C6 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C6 & mouse\_mel\_645 & 01/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Tumour & T5 & mouse\_mel\_641 & 01/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C1 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C2 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C3 & mouse\_mel\_637 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C4 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C5 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Control & C6 & mouse\_mel\_644 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Tmem & Control & C4 & mouse\_mel\_645 & 01/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Tumour & T1 & mouse\_mel\_640 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T1 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T2 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Tumour & T2 & mouse\_mel\_640 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T5 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Tumour & T5 & mouse\_mel\_640 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C4 & mouse\_mel\_648 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C4 & mouse\_mel\_646 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C5 & mouse\_mel\_646 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C6 & mouse\_mel\_646 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T1 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T5 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Tmem & Control & C4 & mouse\_mel\_646 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Tmem & Control & C5 & mouse\_mel\_646 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Tmem & Control & C6 & mouse\_mel\_648 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T2 & mouse\_mel\_638 & 02/06/2016 & NA \\ 
+  mouse\_mel & skin.Tmem & Control & C6 & mouse\_mel\_648 & 01/06/2016 & NA \\ 
+  mouse\_mel & skin.Treg & Control & C6 & mouse\_mel\_648 & 01/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Tumour & T2 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Tumour & T1 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T1 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T2 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Treg & Tumour & T5 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Tumour & T5 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Control & C4 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Control & C5 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Treg & Control & C6 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Tumour & T1 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Tumour & T2 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T2 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T5 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Tumour & T5 & mouse\_mel\_642 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Control & C4 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Control & C5 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & LN.Tmem & Control & C6 & mouse\_mel\_643 & 02/06/2016 & NA \\ 
+  mouse\_mel & spleen.Tmem & Tumour & T1 & mouse\_mel\_639 & 02/06/2016 & NA \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+\scriptsize
+\caption[Batch details for the Human steady-state Smart-seq2 data]{Batch details for the Human steady-state Smart-seq2 data.}
+\centering
+\label{table:tab_A_batch_human}
+\begin{tabular}{lllllll}
+  \toprule
+Experiment & Tissue.Cell Type & Condition & Donor & Plate/Chip & Plate/Chip date & Library Date \\ 
+  \midrule
+  human & skin.Treg & Steady-state & skin\_1 & human\_plate\_skin\_9 & 27/10/2015 & 11/11/2015 \\ 
+  human & skin.Tem & Steady-state & skin\_1 & human\_plate\_skin\_8 & 20/10/2015 & 11/11/2015 \\ 
+  human & skin.Tcm & Steady-state & skin\_1 & human\_plate\_skin\_7 & 28/10/2015 & 11/11/2015 \\ 
+  human & blood.Treg & Steady-state & skin\_1 & human\_plate\_skin\_3 & 23/09/2015 & 11/11/2015 \\ 
+  human & blood.Tem & Steady-state & skin\_1 & human\_plate\_skin\_2 & 28/10/2015 & 11/11/2015 \\ 
+  human & blood.Tcm & Steady-state & skin\_1 & human\_plate\_skin\_1 & 27/10/2015 & 11/11/2015 \\ 
+  human & skin.Tcm & Steady-state & skin\_2 & human\_743 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & skin.Treg & Steady-state & skin\_2 & human\_741 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & skin.Tem & Steady-state & skin\_2 & human\_743 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Treg & Steady-state & skin\_2 & human\_741 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & skin.Treg & Steady-state & skin\_3 & human\_745 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & skin.Tcm & Steady-state & skin\_3 & human\_747 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & skin.Tem & Steady-state & skin\_3 & human\_747 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Treg & Steady-state & skin\_3 & human\_745 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Tcm & Steady-state & skin\_3 & human\_747 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Tem & Steady-state & skin\_3 & human\_747 & 10/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Tcm & Steady-state & skin\_2 & human\_743 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & blood.Tem & Steady-state & skin\_2 & human\_743 & 09/06/2016 & date\_lib\_skin\_2 \\ 
+  human & colon.Treg & Steady-state & colon\_1 & human\_2 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_1 & human\_1 & 17/09/2016 & 07/12/2016 \\ 
+  human & colon.Tcm & Steady-state & colon\_1 & human\_5 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_2 & human\_1 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Tem & Steady-state & colon\_2 & human\_7 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Tem & Steady-state & colon\_1 & human\_7 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Tcm & Steady-state & colon\_2 & human\_4 & 15/11/2016 & 07/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_1 & human\_2 & 15/11/2016 & 01/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_1 & human\_1 & 17/09/2016 & 01/12/2016 \\ 
+  human & colon.Tcm & Steady-state & colon\_2 & human\_4 & 15/11/2016 & 01/12/2016 \\ 
+  human & colon.Tem & Steady-state & colon\_2 & human\_7 & 15/11/2016 & 01/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_2 & human\_2 & 17/09/2016 & 07/12/2016 \\ 
+  human & colon.Treg & Steady-state & colon\_2 & human\_1 & 15/11/2016 & 01/12/2016 \\ 
+  human & skin.Treg & Steady-state & skin\_2 & human\_742 & NA & date\_lib\_skin\_2 \\ 
+  human & skin.Tem & Steady-state & skin\_2 & human\_744 & NA & date\_lib\_skin\_2 \\ 
+  human & skin.Tcm & Steady-state & skin\_2 & human\_744 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Treg & Steady-state & skin\_2 & human\_742 & NA & date\_lib\_skin\_2 \\ 
+  human & skin.Treg & Steady-state & skin\_3 & human\_746 & NA & date\_lib\_skin\_2 \\ 
+  human & skin.Tcm & Steady-state & skin\_3 & human\_748 & NA & date\_lib\_skin\_2 \\ 
+  human & skin.Tem & Steady-state & skin\_3 & human\_748 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Treg & Steady-state & skin\_3 & human\_746 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Tcm & Steady-state & skin\_3 & human\_748 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Tem & Steady-state & skin\_3 & human\_748 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Tem & Steady-state & skin\_2 & human\_744 & NA & date\_lib\_skin\_2 \\ 
+  human & blood.Tcm & Steady-state & skin\_2 & human\_744 & NA & date\_lib\_skin\_2 \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+\scriptsize
+\caption[Batch details for the Mouse steady-state Chromium 10x data]{Batch details for the Mouse steady-state Chromium 10x data.}
+\centering
+\label{table:tab_A_batch_10x}
+\begin{tabular}{lllllll}
+  \toprule
+Experiment & Tissue.Cell Type & Condition & Donor & Plate/Chip & Plate/Chip date & Library Date \\ 
+  \midrule
+  mouse\_10x & skin.Treg & Steady-state & Pool & chip 2 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & skin.Tmem & Steady-state & Pool & chip 2 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & colon.Treg & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & colon.Tmem & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & mLN.Treg & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & mLN.Tmem & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & bLN.Treg & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & bLN.Tmem & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & spleen.Treg & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+  mouse\_10x & spleen.Tmem & Steady-state & Pool & chip 1 & date\_10x\_run & date\_10x\_run \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
 
 \begin{table}[htp!]
 \footnotesize
@@ -82,7 +293,7 @@ tSNE perplecity & 30 & 30 & 30 & 30 & 30\\
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htp!]
 \footnotesize
 \caption[Clinical information on human donors included in this study]{Information on human donors with biological material included in this study. Related to Figure~\ref{fig:chap2_fig5}}
 \centering
@@ -108,23 +319,23 @@ Sex & F & F & F & F & M\\
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[ht!]
 \centering    
 \includegraphics[width=1.0\textwidth]{Appendix1/Figs/appA_fig1.png} % change word in curlies to change figure
 \caption[Sorting and identification of Treg and Tmem cells]{\textbf{Sorting and identification of Treg and Tmem cells (Related to Figure~\ref{fig:chap2_fig1}).}\newline\textbf{(A)} Flow cytometry-sorting strategy for sorting Treg and Tmem cells from (top) lymphoid (mLN) and (bottom) non-lymphoid (colonic lamina propria, cLP, as an example) organs. \textbf{(B)} tSNE projection of all 10x dataset cells passing QC, coloured by the resulting graph-based clustering. Cells from the NKT, Stress/Mt and Undefined clusters were removed from further analysis. (Continued on the following page.)}
 \label{fig:appA_fig1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htp!]
   \contcaption{(continued) \textbf{(C)} Number of cells from each cluster in (D) originating from each sorted population. \textbf{(D and E)} Treg and Tmem cells were obtained with the same methodology as in Figure~\ref{fig:chap2_fig1}A, sequenced using Smart-seq2. t-SNE dimensionality reduction represents all sorted cells for each individual batch that passed quality control (see Methods). Colors match cell-type and tissue of origin. \textbf{(F)} Genes defining the identity of Treg and Tmem cells in lymphoid and non-lymphoid tissues, obtained from the Smart-seq2 datasets. Colon and skin were individually compared with their corresponding draining lymph node and spleen cells. Significantly expressed genes in each cell-type-tissue combination have an average log fold-change greater than 0.25 and and adjusted p-value lower than 0.05 (Wilcoxon test).}% Continued caption
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[ht!]
 \centering    
 \includegraphics[width=1.0\textwidth]{Appendix1/Figs/appA_fig2.png} % change word in curlies to change figure
 \caption[Heterogeneity in SS2 and Tmem cell populations]{\textbf{Heterogeneity in SS2 and Tmem cell populations (Related to Figure~\ref{fig:chap2_fig2}).}\newline\textbf{(A)} Percentage of cells expressing each gene in skin Treg NLT and colon Treg NLT subpopulations in Smart-seq2 data. Genes that are upregulated in the skin Treg NLT subpopulation (log2(FC)>0.25 and adjusted p-value<0.05) are represented by an open circle, and genes upregulated in colon Treg NLT (log2(FC)<(-0.25) and adjusted p-value<0.05) are represented by a filled circle. (Continued on the following page.)}
 \label{fig:appA_fig2}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htp!]
   \contcaption{(continued) \textbf{(B)} Matching of Smart-seq2 Treg cells sorted populations to identified Treg subpopulations in the 10x dataset using a logistic regression model (85\% accuracy, see Methods). Table shows the percentage of each sorted population (y-axis) that were labelled as each Treg cluster (x-axis). \textbf{(C)} t-SNE projection of Tmem cells per tissue coloured by subpopulations found using graph-based clustering. \textbf{(D)} Subpopulation marker gene mean expression levels (z-score) per subpopulation. Gene markers exhibit |log2(FC)|>0.25 and adjusted p-value<0.05 in the comparison of each subpopulation versus all the other cells within the same tissue.  Values greater than 2.5 or lower than -1.5 are coloured equally. \textbf{(E)} Relative proportions of Tmem subpopulations within each tissue that revealed heterogeneity. \textbf{(F)} Measure of the NLT/LT signature score in each Tmem subpopulation, measured as the ratio between the number of NLT and LT genes that have been identified as significantly upregulated in each cluster.}% Continued caption
 \end{figure}
 
