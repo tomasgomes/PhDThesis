@@ -2,7 +2,7 @@
 %*******************************************************************************
 %****************************** Fourth Chapter *********************************
 %*******************************************************************************
-\chapter{Determinants of cross-tissue cell type identity and distribution} \label{chap:CT_test}
+\chapter{Application and biological insights of the \textit{CellTypist} model} \label{chap:CT_test}
 
 % **************************** Define Graphics Path **************************
 \ifpdf
@@ -14,11 +14,16 @@ The identity of a cell can be defined by the genes it expresses. A continuously 
 
 This Chapter outlines the construction of a human cell type reference based on single-cell transcriptomics, by applying the \textit{CellTypist} framework presented in Chapter~\ref{chap:CT_method}. The present Chapter will focus on the interpretability of this pipeline, and reveal the genes driving cell identity across tissues. We will further dissect the relationships across tissues established by \textit{CellTypist}, and explore the influence of different major cell types in tissue biology.
 
-The work presented in this Chapter was partly developed with the assistance of Ni Huang, who contributed to the collection and integration of published datasets. The analyses here performed are based on the methodology outlined in Chapter~\ref{chap:CT_method}. Supplementary figures and tables are included in Appendix~\ref{appendix:CTsub}.
+The analyses here performed are based on the methodology outlined in Chapter~\ref{chap:CT_method}. Supplementary figures and tables are included in Appendix~\ref{appendix:CTsub}.
 
 
 \section{Introduction}
 \label{section4.1}
+Recent developments in single-cell sequencing have enabled unbiased and high-throughput assessment of cell types through transcriptomic profiling~\citep{svensson_exponential_2018}. A few individual works have aimed at profiling cell types across most tissues of an organism~\citep{fincher_cell_2018,plass_cell_2018,han_mapping_2018,noauthor_single-cell_2018}. Other more complex and detailed cellular census have been done for individual tissues, and large consortia have been established to aggregate some of these datasets and establish guidelines and collaborations to identify all cell types across an organism~\citep{regev_human_2017}.
+
+
+
+
 % defining and cataloguing cell types
 The definition of cell type is, like many biological terms, a working definition. Cells have been classified based on different aspects of their morphology, molecular phenotype, or function. Historically, this knowledge of cell identity has been restricted to specific fields (e.g. immunology, neuroscience), hindering the development  of an integrative, systemic perspective of cell types in the body. Single-cell RNA-seq technologies (scRNA-seq) are now challenging this perspective, since they allow for an unbiased profiling of cell identity through the transcriptome. As scRNA-seq data acquisition grows~\citep{svensson_exponential_2018}, so does our understanding of the cellular make up of the profiled tissues. The Human Cell Atlas Consortium has defined as one of its goals to develop a cellular taxonomy~\citep{regev_human_2017}, which is necessarily harmonised across tissues. Nonetheless, a unified, transcriptome-driven perspective of cell identity is still lacking.
 
@@ -126,7 +131,7 @@ The collected expression matrices for the listed datasets were combined, and gen
     \label{fig:chap4_HA}
 \end{figure}
 
-Three additional models, trained using sets of clusters derived using different parameters, were also examined. These were thr1 = 0.4 and thr2 = 0.99 (Figure~\ref{fig:appB_moremodels}A-B), thr1 = 0.25 and thr2 = 0.25 (Figure~\ref{fig:appB_moremodels}C-D), and thr1 = 0.1 and thr2 = 0.1 (Figure~\ref{fig:appB_moremodels}E-F, see Methods Section~\ref{section4.4_model}). These models show a lower performance, in particular the latter (thr1 = 0.1 and thr2 = 0.1), with a test classification accuracy of 73\%. This may be due to the excessive merging of clusters within and across tissues, thus leading to hybrid, undetermined groups of cells (Figure~\ref{fig:appB_tissrel}). Other models are more conservative in this regard, and show a better classification performance. The model using clusters obtained with thr1 = 0.25 and thr2 = 0.25 still has noticeably worse values for the split-join distance, yet also represents a more condensed cell type reference (420 clusters), without sacrificing accuracy (83\%). Lastly, the model with the parameters thr1 = 0.4 and thr2 = 0.99, in particular, is the one showing the greatest improvement in matching annotated cell types after cross-tissue merging, and is thus another possible reference model.
+Three additional models, trained using sets of clusters derived using different parameters, were also examined. These were thr1 = 0.4 and thr2 = 0.99 (Figure~\ref{fig:appB_moremodels}A-B), thr1 = 0.25 and thr2 = 0.25 (Figure~\ref{fig:appB_moremodels}C-D), and thr1 = 0.1 and thr2 = 0.1 (Figure~\ref{fig:appB_moremodels}E-F, see Methods Section~\ref{section4.4_model}). These models show a lower performance, in particular the latter (thr1 = 0.1 and thr2 = 0.1), with a test classification accuracy of 73\%. This may be due to the excessive merging of clusters within and across tissues, thus leading to hybrid, undetermined groups of cells (Figure~\ref{fig:appC_tissrel}). Other models are more conservative in this regard, and show a better classification performance. The model using clusters obtained with thr1 = 0.25 and thr2 = 0.25 still has noticeably worse values for the split-join distance, yet also represents a more condensed cell type reference (420 clusters), without sacrificing accuracy (83\%). Lastly, the model with the parameters thr1 = 0.4 and thr2 = 0.99, in particular, is the one showing the greatest improvement in matching annotated cell types after cross-tissue merging, and is thus another possible reference model.
 
 In sum, the collected datasets allow for the training of the \textit{CellTypist} pipeline and construct a fully interpretable human cell type reference.
 
@@ -153,7 +158,7 @@ For the non-immune fraction (Figure~\ref{fig:chap4_tiss}D), cross tissue relatio
 The tissue relationships highlighted by the gene set enrichment directly derive from the \textit{CellTypist} model trained and the cell groupings that the pipeline defines. Examining other model alternatives shows that in some of them the tissue hierarchy is maintained (Figure~\ref{fig:appB_tissGSEA}), with the exception of the thr1 = 0.1, thr2 = 0.1 model. This is likely caused by excessive merging of clusters, leading to non-meaningful groupings and not so meaningful gene coefficients from the model.
 
 %paragraph about the matching clusters
-Plotting the clusters resulting from cross-tissue merging in \textit{CellTypist} can also reveal the similarity across tissues (Figure~\ref{fig:appB_tissrel}). As already shown by Figure~\ref{fig:appB_grids}A, the model with thr1 = 0.99 and thr2 = 0.8 is the one with the lowest number of merged clusters. We can however still observe clusters merging across tissues that have similar profiles and were included in the "immune enriched" group in Figure~\ref{fig:chap4_tiss}B - liver and bone marrow, lung parenchyma and intestine, decidua and omentum adipose tissue - as well as tissues that have functional associations - decidua and placenta, upper airway and lung parenchyma. The remaining models appear to maintain the occurrence of these associations between tissues, like the close clustering between axLN and hnLN, or the association of tissues including more immune sampling with blood and bone marrow. This is further underscored when the tissue gene signatures are examined in the merged clusters of each model (Figure~\ref{fig:appB_clmGSEA}). While the first model (thr1 = 0.99 and thr2 = 0.8) does not include enough merged clusters, both thr1 = 0.4 and thr2 = 0.99 and thr1 = 0.25 and thr2 = 0.25 again present the distinctive pattern of clustering the tissue signatures by the tissue functions as described before for the immune/non-immune partitions. This however is not evident for thr1 = 0.1 and thr2 = 0.1, likely due to excessive merging leading to a less meaningful model.
+Plotting the clusters resulting from cross-tissue merging in \textit{CellTypist} can also reveal the similarity across tissues (Figure~\ref{fig:appC_tissrel}). As already shown by Figure~\ref{fig:appB_grids}A, the model with thr1 = 0.99 and thr2 = 0.8 is the one with the lowest number of merged clusters. We can however still observe clusters merging across tissues that have similar profiles and were included in the "immune enriched" group in Figure~\ref{fig:chap4_tiss}B - liver and bone marrow, lung parenchyma and intestine, decidua and omentum adipose tissue - as well as tissues that have functional associations - decidua and placenta, upper airway and lung parenchyma. The remaining models appear to maintain the occurrence of these associations between tissues, like the close clustering between axLN and hnLN, or the association of tissues including more immune sampling with blood and bone marrow. This is further underscored when the tissue gene signatures are examined in the merged clusters of each model (Figure~\ref{fig:appB_clmGSEA}). While the first model (thr1 = 0.99 and thr2 = 0.8) does not include enough merged clusters, both thr1 = 0.4 and thr2 = 0.99 and thr1 = 0.25 and thr2 = 0.25 again present the distinctive pattern of clustering the tissue signatures by the tissue functions as described before for the immune/non-immune partitions. This however is not evident for thr1 = 0.1 and thr2 = 0.1, likely due to excessive merging leading to a less meaningful model.
 
 In conclusion, \textit{CellTypist} can reveal the relationships of cell identity across tissue, and relate it to a more structured hierarchy of cellular phenotypes (such as immune vs non-immune). However, this is also dependent of the profiled tissues, as well as how balanced the sampling of cell populations is in each tissue.
 
@@ -226,19 +231,6 @@ This large human cell type reference can be very useful to characterise cell ide
 
 \section{Methods}
 \label{section4.4}
-\subsection{Collecting single-cell expression data}
-\label{section4.4_datacol}
-Single-cell RNA-seq expression data was collected for the publications listed in Table~\ref{table:tab_4_1}, together with cell type annotations when these were available. Information about tissue, donor type and scRNA-seq protocol were obtained from the publications.
-
-In most cases, count data was available together with the raw sequencing reads in the chosen repository. In other cases, the expression matrices deposited included log normalised data. This means that the data was normalised by the total number of reads/UMI of each cell, often followed by multiplication by a specific scaling factor (usually 10000), and finally log scaled, adding 1 to account for the zeroes present. For these datasets, data was reconverted to counts following an approach similar to that explained in \url{http://www.nxn.se/valent/2018/10/25/unscaling-scaled-counts-in-scrna-seq-data}. Briefly, given the scaling factor \textit{S}, representing the second most abundant value for each cell, and \textit{x} for each expression value, unscaled data \textit{U} was obtained by applying Formula 4.1, followed by rounding to the nearest unit to remove floating point inaccuracies.
-
-\begin{align}
-U = \frac{\mathrm{e}^{x} - 1}{S}
-\end{align}
-
-Raw count matrices were then compiled together, guaranteeing as much correspondence as possible between the diverse gene references used. All gene identifiers were mapped to the corresponding HGNC gene names, and all unique identifiers were kept.
-
-
 \subsection{\textit{CellTypist} parameter optimisation and training}
 \label{section4.4_model}
 The \textit{CellTypist} pipeline was applied to the complete human dataset. Data from the same tissues was integrated and clustered using the Leiden algorithm~\citep{traag_louvain_2019} at several resolutions. For tissues with cell type annotations, resolution was optimised using the split-join distance~\citep{dongen_performance_2000} between clusters and cell type annotation and constrained to a number of clusters at least as large as the number of cell type annotations in the largest collected dataset (Figure~\ref{fig:chap4_HA}A, see also Chapter~\ref{chap:CT_method} Section~\ref{section3.2.1}).
